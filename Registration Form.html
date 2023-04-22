@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Registration Form</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+</head>
+
+<body>
+    <h1>Registration Form</h1>
+    <form id="my-form">
+        <div class="form-group">
+            <label for="first-name">First Name</label>
+            <input type="text" id="first-name" name="first-name" required>
+        </div>
+        <div class="form-group">
+            <label for="last-name">Last Name</label>
+            <input type="text" id="last-name" name="last-name" required>
+        </div>
+        <div class="form-group">
+            <label for="date-of-birth">Date of Birth</label>
+            <input type="date" id="date-of-birth" name="date-of-birth" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="mobile">Mobile Number</label>
+            <input type="tel" id="mobile" name="mobile" required>
+        </div>
+        <div class="form-group">
+            <label>Gender</label>
+            <div class="radio-group">
+                <label>
+                    <input type="radio" name="gender" value="male" required>
+                    Male
+                </label>
+                <label>
+                    <input type="radio" name="gender" value="female">
+                    Female
+                </label>
+                <label>
+                    <input type="radio" name="gender" value="other">
+                    Other
+                </label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="pincode">Pin Code</label>
+            <input type="text" id="pincode" name="pincode" required>
+        </div>
+        <div class="form-group">
+            <label for="country">Country</label>
+            <input type="text" id="country" name="country" required>
+        </div>
+        <div class="form-group">
+            <label for="qualification">Qualification</label>
+            <select id="qualification" name="qualification" required>
+                <option value="">-- Select Qualification --</option>
+                <option value="BCA">BCA</option>
+                <option value="B.Tech">B.Tech</option>
+                <option value="M.Tech">M.Tech</option>
+                <option value="MSCIT">MSCIT</option>
+                <option value="BSCIT">BSCIT</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+        <div class="form-group" id="other-qualification">
+            <input type="text" id="other-qualification-input" name="other-qualification-input">
+        </div>
+        <div class="form-group">
+            <label >Please complete the captcha:</label>
+            <div class="h-captcha" data-sitekey="e293c914-2d75-460a-837b-5ff4af052478"></div>
+        </div>
+        <button class="btn" type="submit">Submit</button>
+    </form>
+    <script>
+        const qualificationSelect = document.getElementById("qualification");
+        const otherQualification = document.getElementById("other-qualification");
+
+        otherQualification.style.display = "none";
+
+        qualificationSelect.addEventListener("change", function () {
+            if (qualificationSelect.value === "other") {
+                otherQualification.style.display = "block";
+            } else {
+                otherQualification.style.display = "none";
+            }
+        });
+    </script>
+</body>
+
+</html>
